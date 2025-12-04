@@ -1,0 +1,46 @@
+@import "tailwindcss";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.homepage{
+    min-height: 100vh;
+    background-image: url("../src/assets/background.png");
+    background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+}
+
+.myContainer{
+    border: 1px solid black;
+    text-align: center;
+    padding:5rem;
+}
+.myContainer p{
+    /* border: 1px solid black; */
+    width:25rem;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(185, 179, 179);
+    border-radius: 1rem;
+}
+.myContainer p span{
+    /* border: 1px solid black ; */
+    padding: 0.5rem 1rem;
+    background-color: beige;
+    border-radius: 1rem;
+     cursor: pointer;
+}
+
+.form-wrapper{
+     max-width: 400px;
+  margin: auto;
+    padding: 20px;
+  background: white;
+  border-radius: 10px;
+  
+ 
+}
