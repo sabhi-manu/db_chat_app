@@ -48,16 +48,20 @@ console.log("image ==>",req.file)
     let token = jwt.sign({ id: newUser._id }, process.env.JWT_TOKEN, {
       expiresIn: "1d",
     });
-    res.cookie("token", token);
+    res.cookie("token", token,{
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+});
     console.log("new user register==>", newUser);
 
     newUser.password = undefined
-    if (true) {
-      res.status(200).json({
+   
+    return  res.status(200).json({
         message: "user register successfully.",
         user: newUser,
       });
-    }
+    
   } catch (error) {
     console.log("error in register controller ==>", error.message);
     return res.status(500).json({
@@ -93,10 +97,14 @@ const loginUserController = async (req, res) => {
     user.lastSeen = new Date();
     await user.save()
     let token = jwt.sign({ id: user._id }, process.env.JWT_TOKEN, { expiresIn: "1d" })
-    res.cookie("token", token)
+    res.cookie("token", token,{
+      httpOnly: true,
+      secure: true,          
+      sameSite: "none",      
+    })
 
     // user.password = undefined;
-    console.log("login user ==>", user)
+    console.log("login user ==>", user,token)
     return res.status(200).json({
       message: "User login successfully.",
       user
