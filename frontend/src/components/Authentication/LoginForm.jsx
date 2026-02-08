@@ -14,7 +14,7 @@ const dispatch=  useDispatch()
 
    let response =await dispatch(loginUSerAction(data))
    console.log("response ==>",response)
-   if(response.status == 200 || response.status == 201){
+   if(response?.status == 200 || response?.status == 201){
     navigate("/chat")
    }else{
     alert("enter correct details.")

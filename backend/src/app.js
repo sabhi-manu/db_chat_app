@@ -15,9 +15,10 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use(cors({
- origin: "http://localhost:5173", 
+ origin: process.env.FRONTEND_URL, 
   credentials: true,
-     methods: ["GET", "POST"],
+   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
 app.get("/api/auth/test", (req, res) => {

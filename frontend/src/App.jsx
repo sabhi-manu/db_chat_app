@@ -11,6 +11,7 @@ const App = () => {
   let dispatch = useDispatch()
   let {user} = useSelector((state)=>state.auth)
 console.log("current user ==>",user)
+console.log(import.meta.env.VITE_BACKEND_URL);
   useEffect(()=>{
     dispatch(currentUserAction())
   },[])

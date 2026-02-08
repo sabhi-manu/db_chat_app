@@ -123,7 +123,7 @@ const filterUsers = users?.filter(u => {
               name="search"
               id="search"
               placeholder="search"
-              className="hidden md:block border border-black p-2 rounded outline-none"
+              className="  border border-black p-2 rounded outline-none"
               data-bs-toggle="offcanvas"
               data-bs-target="#sideMenu"
             />
