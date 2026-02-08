@@ -15,8 +15,9 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use(cors({
- origin: ["http://localhost:5173", "https://talktogether-chat.netlify.app"],
-  credentials: true
+ origin: "http://localhost:5173", 
+  credentials: true,
+     methods: ["GET", "POST"],
 }));
 
 app.get("/api/auth/test", (req, res) => {

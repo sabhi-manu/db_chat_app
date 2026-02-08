@@ -6,63 +6,63 @@ import { logoutUserAction } from "../../features/Actions/AuthAction";
 import { allUserAction } from "../../features/Actions/userAction";
 import { accessChatAction } from "../../features/Actions/chatAciton";
 
-const sampleChats = [
-  {
-    _id: "chat1",
-    user: {
-      _id: "u1",
-      name: "Aarav Sharma",
-      email: "aarav@example.com",
-      avatar:
-        "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=500&auto=format&fit=crop&q=60",
-    },
-    lastMessage: "Hey! How are you?",
-  },
-  {
-    _id: "chat2",
-    user: {
-      _id: "u2",
-      name: "Priya Verma",
-      email: "priya@example.com",
-      avatar:
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=60",
-    },
-    lastMessage: "Did you finish your work?",
-  },
-  {
-    _id: "chat3",
-    user: {
-      _id: "u3",
-      name: "Rohan Patel",
-      email: "rohan@example.com",
-      avatar:
-        "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=500&auto=format&fit=crop&q=60",
-    },
-    lastMessage: "Let's meet tomorrow!",
-  },
-  {
-    _id: "chat4",
-    user: {
-      _id: "u4",
-      name: "Neha Gupta",
-      email: "neha@example.com",
-      avatar:
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&auto=format&fit=crop&q=60",
-    },
-    lastMessage: "Okay I will send the file.",
-  },
-  {
-    _id: "chat5",
-    user: {
-      _id: "u5",
-      name: "Vikram Singh",
-      email: "vikram@example.com",
-      avatar:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60",
-    },
-    lastMessage: "Call me when you're free.",
-  },
-];
+// const sampleChats = [
+//   {
+//     _id: "chat1",
+//     user: {
+//       _id: "u1",
+//       name: "Aarav Sharma",
+//       email: "aarav@example.com",
+//       avatar:
+//         "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?w=500&auto=format&fit=crop&q=60",
+//     },
+//     lastMessage: "Hey! How are you?",
+//   },
+//   {
+//     _id: "chat2",
+//     user: {
+//       _id: "u2",
+//       name: "Priya Verma",
+//       email: "priya@example.com",
+//       avatar:
+//         "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=60",
+//     },
+//     lastMessage: "Did you finish your work?",
+//   },
+//   {
+//     _id: "chat3",
+//     user: {
+//       _id: "u3",
+//       name: "Rohan Patel",
+//       email: "rohan@example.com",
+//       avatar:
+//         "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=500&auto=format&fit=crop&q=60",
+//     },
+//     lastMessage: "Let's meet tomorrow!",
+//   },
+//   {
+//     _id: "chat4",
+//     user: {
+//       _id: "u4",
+//       name: "Neha Gupta",
+//       email: "neha@example.com",
+//       avatar:
+//         "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&auto=format&fit=crop&q=60",
+//     },
+//     lastMessage: "Okay I will send the file.",
+//   },
+//   {
+//     _id: "chat5",
+//     user: {
+//       _id: "u5",
+//       name: "Vikram Singh",
+//       email: "vikram@example.com",
+//       avatar:
+//         "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60",
+//     },
+//     lastMessage: "Call me when you're free.",
+//   },
+// ];
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -99,7 +99,14 @@ const NavBar = () => {
     }
   };
 
-  const filterUsers = users?.filter((val)=>val.name.toLowerCase().includes(search.toLocaleLowerCase()))
+const filterUsers = users?.filter(u => {
+  if (u._id === user?._id) return false;
+  if (!search) return true;
+
+  return u.name
+    .toLowerCase()
+    .includes(search.toLowerCase());
+});
   console.log("filter user ==>",filterUsers)
  
   useEffect(()=>{
@@ -129,7 +136,7 @@ const NavBar = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          <i className="fa-solid fa-bell"></i>
+          {/* <i className="fa-solid fa-bell"></i> */}
 
           <div className="dropdown">
             <button
@@ -204,7 +211,7 @@ const NavBar = () => {
               <div> erter somethink </div>
             ) : (
               <>
-                <p>This is your left side menu content.</p>
+                {/* <p>This is your left side menu content.</p> */}
                 {filterUsers?.map((chat) => (
                   <UserID
                     key={chat._id}
