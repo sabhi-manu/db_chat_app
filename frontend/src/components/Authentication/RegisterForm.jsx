@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux';
 import { registerAction } from "../../features/Actions/AuthAction";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
@@ -81,6 +81,12 @@ const RegisterForm = () => {
     
 
       <button className="btn btn-primary w-100" type="submit">Register</button>
+      <div className="text-center">
+          <span>Don't have an account? </span>
+          <Link to="/login" className="btn btn-link p-0">
+            Register
+          </Link>
+        </div>
 </div>
      
     </form>

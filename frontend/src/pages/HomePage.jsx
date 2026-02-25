@@ -13,10 +13,10 @@ const isRegister = location.pathname === "/register";
 
       <div className="text-center mb-4">
         <h2>Talk-A-Tive</h2>
-        <p>
+        {/* <p>
           <span  className={`mx-2 px-3 py-1 rounded ${isLogin ? "bg-primary text-white" : "text-primary"}`} onClick={() => navigate('/login')}>Login</span>
           <span   className={`mx-2 px-3 py-1 rounded  ${isRegister ? "bg-primary text-white" : "text-primary"}`} onClick={() => navigate('/register')}>Register</span>
-        </p>
+        </p> */}
       </div>
 
       {/* The nested route will render here */}
